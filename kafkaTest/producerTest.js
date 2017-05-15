@@ -12,14 +12,16 @@ producer.on('delivery-report',function(err,report){
 	console.log('~~delivery-report ',JSON.stringify(report));
 })
 
-producer.on('ready',function(){
+producer.on('ready',function(arg){
 	try{
-		console.log('~~~connected to kafka~~');
+		console.log('~~~connected to kafka~~'+ JSON.stringify(arg));
+
+		var topic = producer.Topic('speedshield',{'request.required.acks':1});
 
 		for (var i =0; i <10; i++) {
 			console.log('~~~'+i);
 			producer.produce(
-				'speedshield',
+				topic,
 				-1,
 				new Buffer('msg from speedshield value '+i),
 				'key - '+i
