@@ -20,9 +20,9 @@ producer.on('ready',function(){
 	try{
 		console.log('~~~connected to kafka~~');
 		producer.produce(
-			'topic',
+			'speedshield',
 			null,
-			new Buffer('msg from node app'),
+			new Buffer('msg from speedshield'),
 			'stormwind',
 			Date.now()
 		);				
