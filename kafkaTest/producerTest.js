@@ -18,9 +18,8 @@ producer.on('ready',function(){
 		producer.produce(
 			'speedshield',
 			null,
-			new Buffer('msg from speedshield -1'),
-			'stormwind',
-			Date.now()
+			new Buffer('msg from speedshield 2222'),
+			'stormwind'
 		);				
 	}catch(err){
 		console.error('A problem happened when sending message');
