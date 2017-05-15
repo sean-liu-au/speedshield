@@ -25,9 +25,10 @@ producer.on('ready',function(){
 				'key - '+i
 			);				
 		}
+
 	}catch(err){
-		console.error('A problem happened when sending message');
-		console.error(err);	
+		console.log('A problem happened when sending message');
+		console.log(err);	
 	}
 
 });
