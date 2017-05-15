@@ -7,7 +7,7 @@ var consumer = new Kafka.KafkaConsumer({
 	'metadata.broker.list':'172.31.36.117:9000,172.31.45.128:9000,172.31.35.220:9000',
 });
 
-var topicName ='speedshield';
+var topics =['speedshield'];
 
 consumer.on('event.log',function(log){
 	console.log('~~event~~',log);
@@ -18,8 +18,8 @@ consumer.on('event.err',function(err){
 });
 
 consumer.on('ready', function(arg){
-	console.log('consumer.ready '+JSON.stringify(arg));
-	consumer.subscribe(topicName);
+	console.log('~~consumer.ready '+JSON.stringify(arg));
+	consumer.subscribe(topics);
 	consumer.consume();
 })
 
@@ -35,7 +35,7 @@ consumer.on('data',function(m){
 })
 
 consumer.on('disconnect',function(arg){
-	console.log('consumer disconnected '+ JSON.stringify(arg));
+	console.log('~~~consumer disconnected '+ JSON.stringify(arg));
 })
 
 consumer.connect();
