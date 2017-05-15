@@ -18,6 +18,7 @@ producer.connect({},function(err){
 
 producer.on('ready',function(){
 	try{
+		console.log('~~~connected to kafka~~');
 		producer.produce(
 			'topic',
 			null,
