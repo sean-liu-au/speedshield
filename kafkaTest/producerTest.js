@@ -15,12 +15,16 @@ producer.on('delivery-report',function(err,report){
 producer.on('ready',function(){
 	try{
 		console.log('~~~connected to kafka~~');
-		producer.produce(
-			'speedshield',
-			null,
-			new Buffer('msg from speedshield 2222'),
-			'stormwind'
-		);				
+
+		for (var i =0; i <10; i++) {
+			console.log('~~~'+i);
+			producer.produce(
+				'speedshield',
+				-1,
+				new Buffer('msg from speedshield value '+i),
+				'key - '+i
+			);				
+		}
 	}catch(err){
 		console.error('A problem happened when sending message');
 		console.error(err);	
