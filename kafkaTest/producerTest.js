@@ -1,4 +1,4 @@
-console.log('~~~kafka api test~');
+console.log('~~~kafka producer api test~');
 
 var Kafka = require('node-rdkafka');
 
@@ -22,7 +22,7 @@ producer.on('ready',function(){
 		producer.produce(
 			'speedshield',
 			null,
-			new Buffer('msg from speedshield'),
+			new Buffer('msg from speedshield -1'),
 			'stormwind',
 			Date.now()
 		);				
