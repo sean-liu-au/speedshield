@@ -44,9 +44,9 @@ consumer.on('disconnect',function(arg){
 
 consumer.connect();
 
-setTimeout(
-	function(){
-		consumer.disconnect();
-	}
-	,10000
-)
+// setTimeout(
+// 	function(){
+// 		consumer.disconnect();
+// 	}
+// 	,10000
+// )
