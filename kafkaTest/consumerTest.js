@@ -24,18 +24,10 @@ consumer.on('ready', function(arg){
 	consumer.consume();
 })
 
-var counter=0;
-var numOfMsg =5;
 
-consumer.on('data',function(m){
-	counter++;
+consumer.on('data',function(data){
 
-	console.log(counter+'~~~',m);
-	
-	if(counter%numOfMsg ===0){
-		console.log(JSON.stringify(m));
-		console.log(m.value.toString());
-	}
+	console.log('~~~',data.value.toString());
 })
 
 consumer.on('disconnect',function(arg){
