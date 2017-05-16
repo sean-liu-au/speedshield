@@ -30,7 +30,7 @@ var numOfMsg =5;
 consumer.on('data',function(m){
 	counter++;
 
-	console.log(counter+'~~~',data);
+	console.log(counter+'~~~',m);
 	
 	if(counter%numOfMsg ===0){
 		console.log(JSON.stringify(m));
