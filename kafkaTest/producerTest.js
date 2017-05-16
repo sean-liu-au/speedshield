@@ -18,15 +18,13 @@ producer.on('ready',function(arg){
 
 		var topic = producer.Topic('speedshield',{'request.required.acks':1});
 
-		for (var i =0; i <10; i++) {
-			console.log('~~~'+i);
-			producer.produce(
-				topic,
-				-1,
-				new Buffer('msg from speedshield value '+i),
-				'key - '+i
-			);				
-		}
+		console.log('~~~'+Date.now());
+		producer.produce(
+			topic,
+			-1,
+			new Buffer('msg from speedshield value at '+Date.now()),
+			'key - '+Date.now()
+		);				
 
 	}catch(err){
 		console.log('A problem happened when sending message');
