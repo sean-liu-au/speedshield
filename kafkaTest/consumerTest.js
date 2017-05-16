@@ -4,8 +4,8 @@ var Kafka = require('node-rdkafka');
 
 var consumer = new Kafka.KafkaConsumer({
 	'group.id':'kafka',
-	// 'metadata.broker.list':'172.31.36.117:9000,172.31.45.128:9000,172.31.35.220:9000',
-	'metadata.broker.list':'localhost:9000,172.31.45.128:9000,172.31.35.220:9000',
+	'metadata.broker.list':'172.31.36.117:9000,172.31.45.128:9000,172.31.35.220:9000',
+	// 'metadata.broker.list':'localhost:9000,172.31.45.128:9000,172.31.35.220:9000',
 });
 
 var topics =['speedshield'];
