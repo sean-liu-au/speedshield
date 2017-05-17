@@ -8,7 +8,7 @@ var consumer = new Kafka.KafkaConsumer({
 	// 'metadata.broker.list':'localhost:9000,172.31.45.128:9000,172.31.35.220:9000',
 });
 
-var topics =['speedshield'];
+var topics =['speedshield', 'speedshield001'];
 
 consumer.on('event.log',function(log){
 	console.log('~~event~~',log);
@@ -26,8 +26,7 @@ consumer.on('ready', function(arg){
 
 
 consumer.on('data',function(data){
-
-	console.log('~~~',data.value.toString());
+	console.log('~~data~~',data.value.toString());
 })
 
 consumer.on('disconnect',function(arg){

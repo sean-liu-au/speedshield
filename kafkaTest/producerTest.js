@@ -18,13 +18,14 @@ producer.on('ready',function(arg){
 	try{
 		console.log('~~~connected to kafka~~'+ JSON.stringify(arg));
 
-		var topic = producer.Topic('speedshield',{'request.required.acks':1});
+		var topic = producer.Topic('speedshield001',{'request.required.acks':1});
 
-		console.log('~~~'+Date.now());
+		var time=Date.now();
+		console.log('~~ sending ~~'+time);
 		producer.produce(
 			topic,
 			-1,
-			new Buffer('msg from speedshield value at '+Date.now()),
+			new Buffer('msg from test at '+time),
 			'key - '+Date.now()
 		);				
 
