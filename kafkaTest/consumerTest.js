@@ -26,6 +26,7 @@ consumer.on('ready', function(arg){
 
 
 consumer.on('data',function(data){
+	console.log('~~data obj~~',data);	
 	console.log('~~data~~',data.value.toString());
 })
 
