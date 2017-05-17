@@ -26,7 +26,7 @@ producer.on('ready',function(arg){
 			topic,
 			-1,
 			new Buffer('msg from test at '+time),
-			'key - '+Date.now()
+			'key - '+time
 		);				
 
 	}catch(err){
