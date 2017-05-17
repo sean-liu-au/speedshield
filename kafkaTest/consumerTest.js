@@ -21,7 +21,7 @@ consumer.on('event.err',function(err){
 consumer.on('ready', function(arg){
 	console.log('~~consumer.ready '+JSON.stringify(arg));
 	consumer.subscribe(topics);
-	consumer.consume();
+	consumer.consume(1);
 })
 
 
