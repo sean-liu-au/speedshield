@@ -8,7 +8,7 @@ var producer = new Kafka.Producer({
 	'event_cb':true
 });
 
-producer.setPoliingInterval(100);
+producer.setPollInterval(100);
 
 producer.on('delivery-report',function(err,report){
 	console.log('~~delivery-report ',JSON.stringify(report));
