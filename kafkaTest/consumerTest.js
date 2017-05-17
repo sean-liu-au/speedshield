@@ -21,9 +21,16 @@ consumer.on('event.err',function(err){
 consumer.on('ready', function(arg){
 	console.log('~~consumer.ready '+JSON.stringify(arg));
 	consumer.subscribe(topics);
-	consumer.consume(1, null);
+	consumer.consume(1, cbOnMsg);
 })
 
+function cbOnMsg(err, msg){
+	if (err) {
+		console.log('~~cbOnMsg err~',err);
+		return;
+	}
+	console.log('~~cbOnMsg~',msg);
+}
 
 consumer.on('data',function(data){
 	console.log('~~data obj~~',data);	
