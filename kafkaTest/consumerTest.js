@@ -4,11 +4,15 @@ var Kafka = require('node-rdkafka');
 
 var consumer = new Kafka.KafkaConsumer({
 	'group.id':'kafka',
-	'metadata.broker.list':'172.31.36.117:9000,172.31.45.128:9000,172.31.35.220:9000',
+	// 'bootstrap.servers':'10.128.65.226:9000,10.128.65.167:9000,10.128.65.149:9000',
+	// 'metadata.broker.list':'10.128.65.226:9000,10.128.65.167:9000,10.128.65.149:9000',
+	// 'metadata.broker.list':'10.128.65.226:9000',
+	// 'metadata.broker.list':'10.128.65.167:9000',
+	'metadata.broker.list':'10.128.65.149:9000',
 	// 'metadata.broker.list':'localhost:9000,172.31.45.128:9000,172.31.35.220:9000',
 });
 
-var topics =['speedshield', 'speedshield001'];
+var topics =['speedshield', 'speedshield001','test002'];
 
 consumer.on('event.log',function(log){
 	console.log('~~event~~',log);
@@ -41,7 +45,12 @@ consumer.on('disconnect',function(arg){
 	console.log('~~~consumer disconnected '+ JSON.stringify(arg));
 })
 
-consumer.connect();
+consumer.connect({},function(err){
+	if (err) {
+		console.error(err);
+		return process.exit(1);
+	}
+});
 
 // setTimeout(
 // 	function(){
